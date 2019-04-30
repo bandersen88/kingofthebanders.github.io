@@ -1,59 +1,777 @@
 <!DOCTYPE html>
-<html lang="en-us">
-    <head>
-        <meta charset="UTF-8"/>
-        <title>Portfolio</title>
-        <link href="assets/css/reset.css" rel="stylesheet">
-        <link href="assets/css/style.css" rel="stylesheet">
-    </head>
-    
-    <!-- clearfix makes the div whatever the size of the content is -->
-    <!-- margin: 0 auto (gives auto centering of a div within a div) -->
-    <!-- child divs inherit from their parent divs -->
-    <!-- dude I can do this, I can outcompete these people. -->
-    <!-- fixed keeps it in an absolute position even if you are scrolling -->
-    <!-- asbsolute is relative the page (unless you add relative), does not move with scrolling -->
+<html lang="en">
 
-    <body>
-        <!-- can change to <nav> element starting with html 5-->
-        <nav class="clearfix">
-            <ul>
-                <li id="home"><a href="#top">Benjamin Andersen</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="index.html">About</a></li>
-            </ul>
-        </nav>
-        <section id="main-content" class="clearfix">
-            <div id="content-1">
-                    <h1>About Me</h1>
-            </div>
-            <!-- <img src="holder.js/300x400"/> -->
-            <img id="content-2" src="data:image/jpeg;base64,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"/>
-            <div id="content-3">
-                <p>
-                    Hi. I'm Ben.<br><br>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
 
-                    I'm becoming a developer.<br><br>
+		<title>Benjamin Andersen - Full Stack and Java Developer</title>
 
-                    Actually, I write a little code already for my work, but I want to get a lot better.<br><br>
+		<!-- Bootstrap core CSS -->
+		<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-                    Check out this awesome portfolio site I made.<br><br>
+		<!-- Custom fonts for this template -->
+		<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+		<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-                    It's got a bunch of pictures that I didn't take, but they look cool.<br><br>
+		<!-- Slick -->
+		<link rel="stylesheet" type="text/css" href="slick/slick.css" />
+		<link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+		<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
-                    And some of them mean something to me.<br><br>
+		<!-- Custom styles for this template -->
+		<link href="css/index.css" rel="stylesheet">
+	</head>
 
-                    That wolf, that looks like my dog, "Deems".  He's a huskey/Malammute.<br><br>
+	<body id="page-top">
 
+		<!-- Navigation -->
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+			<div class="container">
+				<a class="navbar-brand js-scroll-trigger" href="#page-top">Benjamin Andersen</a>
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+					Menu
+					<i class="fas fa-bars"></i>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarResponsive">
+					<ul class="navbar-nav text-uppercase ml-auto">
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#about">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#resume">resume</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#portfolio">Portfolio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-                </p>
-                <br>
-            </div>
-        </section>
+		<!-- Header -->
+		<header class="masthead">
+			<div class="container">
+				<div class="intro-text">
+					<div class="intro-lead-in">Hi, I'm Ben.</div>
+					<div class="intro-heading text-uppercase">Full stack and java developer</div>
+					<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#portfolio">What I can Do For You</a>
+				</div>
+			</div>
+		</header>
 
-        <footer>
-            <p>Copyright &copy</p>
-        </footer>
-    </body>
+		<!-- ABOUT -->
+		<section class="bg-light" id="about" style="background-color: rgb(234,235,214)">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading text-uppercase">About Me</h2>
+						<!-- <h3 class="section-subheading text-muted">Learn a bit more about who I am and my experience</h3> -->
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="profile">
+							<img class="mx-auto rounded-circle" src="img/portfolio/head_shot.jpg" alt="">
+							<h4>Benjamin Andersen</h4>
+							<p class="text-muted">Full-Stack and Java Developer</p>
+							<ul class="list-inline social-buttons">
+								<li class="list-inline-item">
+									<a href="https://github.com/kingofthebanders" target="_blank">
+										<i class="fab fa-github"></i>
+									</a>
+								</li>
+								<li class="list-inline-item">
+									<a href="https://www.linkedin.com/in/benjamin-andersen-b6378a36/" target="_blank">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<p>I'm a full stack devleper with experience in enterprise Java applications, Node Express and React full stack development,
+							and IOT development with the Tessel 2 board and Johnny Five library.
+						</p>
+						<p>As a Senior Software Engineer I've developed multiple applications with Spring MVC, Hibernate, Spring Boot and MySQL.
+							I've worn a number of hats and have experience developing ETL jobs for a Wells Fargo CEO portal secure invoicing system and
+							Navision ERP integration, PowerBI dashboards and reports, implementing cybersecurity measures, and more.
+						</p>
+						<p>I have a passion for back-end, front-end, and embedded systems development and am enrolled in the U of M Full Stack prorgram to 
+							stay on top of the latest trends with Node, Express, React and Mongo DB.  Check out the latest projects I've been working on,
+							including my current favorite, a wireless automated gardening system.
+					</div>
+				</div>
+				<!-- <div class="row">
+					<div class="col-lg-8 mx-auto text-center">
+						<p class="large text-muted">Andrew is currently seeking a full-time position in web development to advance his
+							career forward to the next step, as well as being open to freelancing positions.</p>
+					</div>
+				</div> -->
+			</div>
+		</section>
+
+		<!-- RESUME -->
+		<section id="resume">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading text-uppercase">Resume</h2>
+						<h3 class="section-subheading text-muted">A collection of my skills and experiences</h3>
+					</div>
+				</div>
+				<!--CAREER SUMMARY-->
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="profile">
+							<h4>Career Summary</h4>
+							<p class="text-muted">Full-Stack Web Developer</p>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<p>Full Stack Web Developer with diverse IT experience, knowledge of multiple programming languages, libraries, 
+							and frameworks, and a passion for back-end, front-end, and embedded systems development.  
+							Effective at working with my coworkers to find creative and collaborative solutions to challenging problems.  
+							Strong desire to learn, attention to detail, and persistence with projects.   </p>
+					</div>
+				</div>
+				<!--SKILLS-->
+				<div class="row">
+					<div class="col-sm-12 skills-margin-top">
+						<div class="profile">
+							<h4>Programming Languages & Tools</h4>
+							<div class="skills-container">
+								<a href="https://en.wikipedia.org/wiki/HTML" target="_blank">
+									<img src="img/resume/html.svg" class="skills-icon">
+								</a>
+								<a href="https://en.wikipedia.org/wiki/Cascading_Style_Sheets" target="_blank">
+									<img src="img/resume/css.svg" class="skills-icon">
+								</a>
+								<a href="https://www.javascript.com/" target="_blank">
+									<img src="img/resume/javascript.svg" class="skills-icon">
+								</a>
+								<a href="https://nodejs.org/" target="_blank">
+									<img src="img/resume/node.svg" class="skills-icon">
+								</a>
+								<a href="https://reactjs.org/" target="_blank">
+									<img src="img/resume/react.svg" class="skills-icon">
+								</a>
+								<a href="https://www.mongodb.com/" target="_blank">
+									<img src="img/resume/mongodb.svg" class="skills-icon">
+								</a>
+								<a href="https://www.mysql.com/" target="_blank">
+									<img src="img/resume/sql.svg" class="skills-icon">
+								</a>
+								<a href="https://expressjs.com/" target="_blank">
+									<img src="img/resume/express.svg" class="skills-icon">
+								</a>
+								<a href="https://www.npmjs.com/" target="_blank">
+									<img src="img/resume/npm.svg" class="skills-icon">
+								</a>
+								<a href="https://handlebarsjs.com/" target="_blank">
+									<img src="img/resume/handlebars.svg" class="skills-icon">
+								</a>
+								<a href="https://getbootstrap.com/" target="_blank">
+									<img src="img/resume/bootstrap.svg" class="skills-icon">
+								</a>
+								<a href="https://jquery.com/" target="_blank">
+									<img src="img/resume/jquery.svg" class="skills-icon">
+								</a>
+								<a href="http://lesscss.org/" target="_blank">
+									<img src="img/resume/less.svg" class="skills-icon">
+								</a>
+								<a href="https://sass-lang.com/" target="_blank">
+									<img src="img/resume/sass.svg" class="skills-icon">
+								</a>
+							</div>
+							<h4>Additional Skills</h4>
+							<div class="additional-skills-container">
+								<div class="additional-skills">
+									<a href="https://en.wikipedia.org/wiki/Microsoft_Windows" target="_blank">
+										<img src="img/resume/windows.svg" class="skills-icon">
+									</a>
+									<a href="https://en.wikipedia.org/wiki/Macintosh_operating_systems" target="_blank">
+										<img src="img/resume/mac.svg" class="skills-icon">
+									</a>
+									<a href="https://code.visualstudio.com/" target="_blank">
+										<img src="img/resume/vscode.svg" class="skills-icon">
+									</a>
+									<a href="https://www.eclipse.org/" target="_blank">
+										<img src="img/resume/eclipse.svg" class="skills-icon">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--EXPERIENCE-->
+				<div class="col-sm-12">
+					<div class="profile">
+						<h4>Professional Experience</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="profile">
+							<h4>Senior Software Engineer</h4>
+							<p class="text-muted">Delkor Systems, MN 2017-2019</p>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<ul>
+							<li>Developed Spring MVC, Hibernate, MySQL based internal applications deployed on Tomcat with Git souce control</li>
+							<li>Desgined and wrote a Spring Boot quoting and ordering application with Navision and Hubspot Integration using Axosoft for Agile development</li>
+							<li>Explored AWS for cloud deployment</li>
+							<li>Implemented a new ERP and MRP backup plan</li>
+							<li>Created operational data reports and dashboards in PowerBI</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="profile">
+							<h4>Controls Engineer - Development</h4>
+							<p class="text-muted">Design Ready Controls, MN  2016-2017</p>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<ul>
+							<li>Developed a configuration system following DRC’s automated panel expert platform which priced, designed, and configured products in a new product line.</li>
+							<li>Created schematics in Eplan, and automated schematic builds for standard product lines</li>
+							<li>Verified customer specifications to UL508a and UL1998 requirements</li>
+							<li>Oversaw manufacturing engineering process to ensure quality and incorporate desing for manufacturability</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-sm-4">
+							<div class="profile">
+								<h4>Software Automation Engineer</h4>
+								<p class="text-muted">Delkor Systems, MN 2013-2016</p>
+							</div>
+						</div>
+						<div class="col-sm-8">
+							<ul>
+								<li>Developed a configurator application with VBA, SQL, and Soldworks API which produced quotes, generated 3D models in SolidWorks, and optimized part order quantities from machine demand forecasts.</li>
+								<li>Standardized and modularized panel layouts</li>
+								<li>Led Voice of the Customer research to incorporate customer feedback into commercial product designs.</li>
+							</ul>
+						</div>
+					</div>
+
+				<!--EDUCATION-->
+				<div class="col-sm-12">
+					<div class="profile">
+						<h4>Education</h4>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-4">
+						<div class="profile">
+							<h4>Univeristy of Minnesota</h4>
+							<p class="text-muted">Full Stack Web Development Program 2019</p>
+						</div>
+					</div>
+					<div class="col-sm-8">
+						<ul>
+							<li>Program covers Front-end Web Design, Node.js, Modern JavaScript, MERN Stack Programming, and
+								Java Back-end Programming</li>
+							<li>6 month program, 240 class hours, built 18 responsive site/web app projects</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">
+						<div class="col-sm-4">
+							<div class="profile">
+								<h4>Univeristy of Notre Dame</h4>
+								<p class="text-muted">B.S. in Physics and Electrical Engineering 2006-2011</p>
+							</div>
+						</div>
+					</div>
+
+			</div>
+		</section>
+
+		<!-- Portfolio Grid -->
+		<section id="portfolio">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading text-uppercase">Portfolio</h2>
+						<h3 class="section-subheading text-muted">Some of the most recent things I've worked on</h3>
+					</div>
+				</div>
+				<div class="row">
+
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal0">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<div class="portfolio-caption">
+										<h4>Ski Trip Planner</h4>
+										<p class="text-muted">A Ski Trip Planner Application</p>
+									</div>
+								</div>
+							</div>
+							<img class="img-fluid" src="img/portfolio/ski-web-app.png" alt="">
+						</a>
+					</div>
+
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<div class="portfolio-caption">
+										<h4>Wireless Garden</h4>
+										<p class="text-muted">Internet connected garden watering system</p>
+									</div>
+								</div>
+							</div>
+							<img class="img-fluid" src="img/portfolio/iotGarden.jpg" alt="">
+						</a>
+					</div>
+
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<div class="portfolio-caption">
+										<h4>Rick and Morty Trivia</h4>
+										<p class="text-muted">Trivia Game for Rick and Morty Fans</p>
+									</div>
+								</div>
+							</div>
+							<img class="img-fluid" src="img/portfolio/RickAndMorty.png" alt="">
+						</a>
+					</div>
+
+					<!-- <div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<div class="portfolio-caption">
+										<h4>React Memory Game</h4>
+										<p class="text-muted">React-powered image memory game</p>
+									</div>
+								</div>
+							</div>
+							<img class="img-fluid" src="img/portfolio/3.png" alt="">
+						</a>
+					</div>
+
+					<div class="col-md-4 col-sm-6 portfolio-item">
+						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
+							<div class="portfolio-hover">
+								<div class="portfolio-hover-content">
+									<div class="portfolio-caption">
+										<h4>jQuery RPG</h4>
+										<p class="text-muted">Framework-less JavaScript game</p>
+									</div>
+								</div>
+							</div>
+							<img class="img-fluid" src="img/portfolio/4.png" alt="">
+						</a>
+					</div> -->
+
+				</div>
+			</div>
+		</section>
+
+		<!-- CONTACT -->
+		<section id="contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12 text-center">
+						<h2 class="section-heading text-uppercase">Get in Touch!</h2>
+						<h3 class="section-subheading text-muted">Looking to connect? Send me a message using the form below, or contact
+							me through any of my social media pages!</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-12">
+						<form id="contactForm" name="sentMessage" action="https://postmail.invotes.com/send" method="post">
+							<div class="row">
+								<div class="col-md-6">
+									<input type="hidden" name="access_token" value="y5sxxf8bqhdyfkzkxura8kbm" />
+									<input type="hidden" name="success_url" value=".?message=Email+Successfully+Sent%21&isError=0" />
+									<input type="hidden" name="error_url" value=".?message=Email+could+not+be+sent.&isError=1" />
+									<input type="hidden" name="subject" value="Sent From Portfolio Site" />
+									<div class="form-group">
+										<input class="form-control" id="name" type="text" placeholder="Your Name *" required="required"
+										 data-validation-required-message="Please enter your name." name="extra_name">
+										<p class="help-block text-danger"></p>
+									</div>
+									<div class="form-group">
+										<input class="form-control" id="email" type="email" placeholder="Your Email *" required="required"
+										 data-validation-required-message="Please enter your email address." name="extra_email">
+										<p class="help-block text-danger"></p>
+									</div>
+									<div class="form-group">
+										<input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required"
+										 data-validation-required-message="Please enter your phone number." name="extra_phone_number">
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-group">
+										<textarea class="form-control" id="message" placeholder="Your Message *" required="required"
+										 data-validation-required-message="Please enter a message." name="text"></textarea>
+										<p class="help-block text-danger"></p>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="col-lg-12 text-center">
+									<div id="success"></div>
+									<button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+								</div>
+							</div>
+						</form>
+
+						<script>
+							var submitButton = document.getElementById("sendMessageButton");
+							var form = document.getElementById("contactForm");
+							form.addEventListener("submit", function (e) {
+								setTimeout(function() {
+									submitButton.value = "Sending...";
+									submitButton.disabled = true;
+								}, 1);
+							});
+						</script>
+
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<div class="row">
+					<ul class="list-inline social-buttons">
+						<li class="list-inline-item">
+							<a href="https://github.com/kingofthebanders" target="_blank">
+								<i class="fab fa-github"></i>
+							</a>
+						</li>
+						<!-- <li class="list-inline-item">
+							<a href="https://www.facebook.com/AndrewMurphyWasTaken" target="_blank">
+								<i class="fab fa-facebook-f"></i>
+							</a>
+						</li> -->
+						<li class="list-inline-item">
+							<a href="https://www.linkedin.com/in/a-murph/" target="_blank">
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Portfolio Modals -->
+
+		<!-- Modal Ski Trip App -->
+		<div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!--CLOSE MODAL BUTTON-->
+					<div class="close-modal" data-dismiss="modal">
+						<button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+
+					<!--MODAL IMAGE-->
+					<div class="carousel-wrapper">
+						<div class="carousel">
+							<div>
+								<img src="img/portfolio/ski-web-app-C1.png">
+							</div>
+							<div>
+								<img src="img/portfolio/ski-web-app-C2.png">
+							</div>
+							<div>
+								<img src="img/portfolio/ski-web-app-C3.png">
+							</div>
+						</div>
+					</div>
+
+					<!--MODAL TEXT-->
+					<div class="container">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h2 class="text-uppercase">Ski Trip Planner</h2>
+							<p class="item-intro text-muted">API Integrated App</p>
+							<div class="tech-button-div">
+								<button class="tech-button btn btn-primary" type="button">jQuery</button>
+								<button class="tech-button btn btn-primary" type="button">Firebase</button>
+							</div>
+							<p>Ski Trip Planner is a powder track and cheap flight finder app to plan your best ski trip </p>
+							<p>The site integrates a weather API and flight API to find the cheapest flights to resorts with largest upcoming snow days</p>
+							<p>In summary, what we built is:</p>
+							<ul>
+								<li>A jQuery based API integration to DarkSKY and SkyScanner</li>
+								<li>A Firebase backend to hold daily DarkSKY data and minimize API calls</li>
+								<li>A Bootstrap based front end to highlight the top 4 resorts for the next 7 days snow forecast</li>
+							</ul>
+
+							<button  onclick="window.open('https://github.com/kingofthebanders/ProjectOne', '_blank');" class="btn btn-primary" type="button">
+								<i class="fab fa-github"></i>
+								Github</button>
+							<button onclick="window.open('https://kingofthebanders.github.io/ProjectOne/', '_blank');" class="btn btn-primary" type="button">
+								<i class="fas fa-external-link-alt"></i>
+								Live Website</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal Word Guess Game -->
+		<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!--CLOSE MODAL BUTTON-->
+					<div class="close-modal" data-dismiss="modal">
+						<button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+
+					<!--MODAL IMAGE-->
+					<div class="carousel-wrapper">
+						<div class="carousel">
+							<div>
+								<img src="img/portfolio/word-guess-C1.png">
+							</div>
+							<div>
+								<img src="img/portfolio/word-guess-C2.png">
+							</div>
+						</div>
+					</div>
+
+					<!--MODAL TEXT-->
+					<div class="container">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h2 class="text-uppercase">Rick and Morty Trivia</h2>
+							<p class="item-intro text-muted">Word Guess Game for Rick and Morty Fans</p>
+							<div class="tech-button-div">
+								<button class="tech-button btn btn-primary" type="button">Vanilla JS</button>
+								<button class="tech-button btn btn-primary" type="button">Responsive UI</button>
+							</div>
+							<p>Do you know Ice-T's origin story?  The home planet of the talking heads?  Morty's high school crush?  Test your knowledge of one of the greatest, strangest, and most enjoyable shows of all time Rick and Morty</p>
+							
+							<p>In summary, what I built is:</p>
+							<ul>
+								<li>A vanilla js object for updating the UI in response to user input</li>
+								<li>A colorful, fun, responsive UI</li>
+							</ul>
+								
+
+							<button  onclick="window.open('https://github.com/kingofthebanders/Word-Guess-Game', '_blank');" class="btn btn-primary" type="button">
+								<i class="fab fa-github"></i>
+								Github</button>
+							<button onclick="window.open('https://kingofthebanders.github.io/Word-Guess-Game/', '_blank');" class="btn btn-primary" type="button">
+								<i class="fas fa-external-link-alt"></i>
+								Live Website</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal IOT Garden -->
+		<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!--CLOSE MODAL BUTTON-->
+					<div class="close-modal" data-dismiss="modal">
+						<button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+
+					<!--MODAL IMAGE-->
+					<div class="carousel-wrapper">
+						<div class="carousel">
+							<div>
+								<img src="img/portfolio/iotGarden-C1.jpg">
+							</div>
+							<div>
+								<img src="img/portfolio/iotGarden-C2.jpg">
+							</div>
+						</div>
+					</div>
+
+					<!--MODAL TEXT-->
+					<div class="container">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h2 class="text-uppercase">Tessel 2 Garden</h2>
+							<p class="item-intro text-muted">Internet connected home garden watering system</p>
+							<div class="tech-button-div">
+								<button class="tech-button btn btn-primary" type="button">SQLite</button>
+								<button class="tech-button btn btn-primary" type="button">Express</button>
+								<button class="tech-button btn btn-primary" type="button">Handlebars</button>
+								<button class="tech-button btn btn-primary" type="button">Node</button>
+								<button class="tech-button btn btn-primary" type="button">MQTT</button>
+								<button class="tech-button btn btn-primary" type="button">Tesel 2</button>
+								<button class="tech-button btn btn-primary" type="button">Johnny Five</button>
+							</div>
+							<p>Using a Tessel 2 board and the Johnny Five node robotics library, this connected watering system is internet connected.  An authorized user can set water timers, turn on and off the water pump, and set watering to Auto, all from a smart phone.  The auto setting takes input for the soil moisture sensor and waters the plants when they are in need.  It monitors the weather as well an will bypass the daily watering if rain is expected, even if the soil moisture is low enough to warrent watering.</p>
+							<p>In summary, what I built is:</p>
+							<ul>
+								<li>A Tessel 2 board with a moisture sensor and 24V relay to turn on and off a drip line</li>
+								<li>A SQLite database to store timer settings and past 30 days moisture data</li>
+								<li>A node backend with Johnny Five robotics library to control the Tessel 2 board</li>>
+							</ul>
+
+							<button  onclick="window.open('https://github.com/kingofthebanders/iotGarden', '_blank');" class="btn btn-primary" type="button">
+								<i class="fab fa-github"></i>
+								Github</button>
+							<!-- <button onclick="window.open('https://mongo-polygon-scraper.herokuapp.com', '_blank');" class="btn btn-primary" type="button">
+								<i class="fas fa-external-link-alt"></i>
+								Live Website</button> -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal MEMORY GAME -->
+		<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!--CLOSE MODAL BUTTON-->
+					<div class="close-modal" data-dismiss="modal">
+						<button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+
+					<!--MODAL IMAGE-->
+					<div class="carousel-wrapper">
+						<div class="carousel">
+							<div>
+								<img src="img/portfolio/mhw1.png">
+							</div>
+						</div>
+					</div>
+
+					<!--MODAL TEXT-->
+					<div class="container">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h2 class="text-uppercase">React Memory Game</h2>
+							<p class="item-intro text-muted">Don't click on the same image twice</p>
+							<div class="tech-button-div">
+								<button class="tech-button btn btn-primary" type="button">React</button>
+							</div>
+							<p>This is a memory game built entirely with React, using images from the Capcom game "Monster Hunter World".</p>
+							<p>The player gets one point for clicking on an image, but if they click on the same image twice they lose and the game resets. The order of the images reshuffles after each click.</p>
+							<p>In summary, what I built is:</p>
+							<ul>
+								<li>React components for the clickable images and the game header</li>
+								<li>A main class component that holds an array of every image that shuffles on every click, an array of all the images that the player has clicked so far, and the player's current score and highest score</li>
+							</ul>
+
+							<button  onclick="window.open('https://github.com/a-murph/Memory-Game', '_blank');" class="btn btn-primary" type="button">
+								<i class="fab fa-github"></i>
+								Github</button>
+							<button onclick="window.open('https://a-murph.github.io/Memory-Game', '_blank');" class="btn btn-primary" type="button">
+								<i class="fas fa-external-link-alt"></i>
+								Live Website</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Modal SMT RPG -->
+		<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+
+					<!--CLOSE MODAL BUTTON-->
+					<div class="close-modal" data-dismiss="modal">
+						<button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times"></i></button>
+					</div>
+
+					<!--MODAL IMAGE-->
+					<div class="carousel-wrapper">
+						<div class="carousel">
+							<div>
+								<img src="img/portfolio/smt1.png">
+							</div>
+							<div>
+								<img src="img/portfolio/smt2.png">
+							</div>
+						</div>
+					</div>
+
+					<!--MODAL TEXT-->
+					<div class="container">
+						<div class="modal-body">
+							<!-- Project Details Go Here -->
+							<h2 class="text-uppercase">jQuery RPG</h2>
+							<p class="item-intro text-muted">Defeat all of your enemies before they defeat you</p>
+							<div class="tech-button-div">
+								<button class="tech-button btn btn-primary" type="button">jQuery</button>
+							</div>
+							<p>This is an RPG built using only jQuery and plain JavaScript, based on the Atlus video game series "Shin Megami Tensei: Persona".</p>
+							<p>The player chooses one of six characters, each with different stats, and then must defeat all five other characters without losing all of their health. The player character's attack stat increases on each attack, and they choose the order in which to challenge the other characters. The player must choose the order of opponents carefully in order to survive long enough to defeat every opponent. The game's battle music changes depending on the character the player chooses.</p>
+							<p>In summary, what I built is:</p>
+							<ul>
+								<li>Dynamically-generated HTML, using jQuery to build each character's info card and update it when necessary</li>
+								<li>Main game object that handles progression of game, including logic for dealing damage, increasing stats, and defeating enemies</li>
+								<li>jQuery event handlers for selecting characters and which trigger relevant game-logic functions in the main game object</li>
+							</ul>
+
+							<button  onclick="window.open('https://github.com/a-murph/SMT-RPG-GAME', '_blank');" class="btn btn-primary" type="button">
+								<i class="fab fa-github"></i>
+								Github</button>
+							<button onclick="window.open('https://a-murph.github.io/SMT-RPG-Game', '_blank');" class="btn btn-primary" type="button">
+								<i class="fas fa-external-link-alt"></i>
+								Live Website</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Bootstrap core JavaScript -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Plugin JavaScript -->
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+		<!-- Contact form JavaScript -->
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="js/agency.min.js"></script>
+
+		<!-- Carousels -->
+		<script type="text/javascript" src="slick/slick.js"></script>
+		<script>
+			$(document).ready(() => {
+				$(".carousel").slick({
+					arrows: false,
+					dots: true
+				});
+			});
+		</script>
+
+	</body>
+
 </html>
