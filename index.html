@@ -356,21 +356,21 @@
 						</a>
 					</div>
 
-					<!-- <div class="col-md-4 col-sm-6 portfolio-item">
+					<div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
 									<div class="portfolio-caption">
-										<h4>React Memory Game</h4>
-										<p class="text-muted">React-powered image memory game</p>
+										<h4>Eat Da Burger</h4>
+										<p class="text-muted">Heroku Hosted Burger App</p>
 									</div>
 								</div>
 							</div>
-							<img class="img-fluid" src="img/portfolio/3.png" alt="">
+							<img class="img-fluid" src="img/portfolio/burger-1.jpg" alt="">
 						</a>
 					</div>
 
-					<div class="col-md-4 col-sm-6 portfolio-item">
+					<!-- <div class="col-md-4 col-sm-6 portfolio-item">
 						<a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
 							<div class="portfolio-hover">
 								<div class="portfolio-hover-content">
@@ -647,7 +647,7 @@
 			</div>
 		</div>
 
-		<!-- Modal MEMORY GAME -->
+		<!-- Modal Burger App -->
 		<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -661,7 +661,7 @@
 					<div class="carousel-wrapper">
 						<div class="carousel">
 							<div>
-								<img src="img/portfolio/mhw1.png">
+								<img src="img/portfolio/burger-1.jpg">
 							</div>
 						</div>
 					</div>
@@ -670,23 +670,26 @@
 					<div class="container">
 						<div class="modal-body">
 							<!-- Project Details Go Here -->
-							<h2 class="text-uppercase">React Memory Game</h2>
-							<p class="item-intro text-muted">Don't click on the same image twice</p>
+							<h2 class="text-uppercase">Burger App</h2>
+							<p class="item-intro text-muted">Eat Da Burger</p>
 							<div class="tech-button-div">
-								<button class="tech-button btn btn-primary" type="button">React</button>
+								<button class="tech-button btn btn-primary" type="button">Heroku</button>
+								<button class="tech-button btn btn-primary" type="button">Express</button>
+								<button class="tech-button btn btn-primary" type="button">MySQL</button>
+								<button class="tech-button btn btn-primary" type="button">Node</button>
 							</div>
-							<p>This is a memory game built entirely with React, using images from the Capcom game "Monster Hunter World".</p>
-							<p>The player gets one point for clicking on an image, but if they click on the same image twice they lose and the game resets. The order of the images reshuffles after each click.</p>
+							<p>This is a Heroku hosted burger app which persists form submissions and state changes to a MySQL database.</p>
+							<p>The user can add a burger using the form, which will insert a new entry into the database and update the webpage.  A user can also 'devour' a burger by clicking the devour button, and this will update the deoured state of the burger in MySQL and update the webpage</p>
 							<p>In summary, what I built is:</p>
 							<ul>
-								<li>React components for the clickable images and the game header</li>
-								<li>A main class component that holds an array of every image that shuffles on every click, an array of all the images that the player has clicked so far, and the player's current score and highest score</li>
+								<li>Express Server with custom ORM connecting to a MySQL database</li>
+								<li>Deployed the app to Heroku using the JawsDB add on for a MySQL database</li>
 							</ul>
 
-							<button  onclick="window.open('https://github.com/a-murph/Memory-Game', '_blank');" class="btn btn-primary" type="button">
+							<button  onclick="window.open('https://github.com/kingofthebanders/burger', '_blank');" class="btn btn-primary" type="button">
 								<i class="fab fa-github"></i>
 								Github</button>
-							<button onclick="window.open('https://a-murph.github.io/Memory-Game', '_blank');" class="btn btn-primary" type="button">
+							<button onclick="window.open('https://fierce-peak-22532.herokuapp.com/', '_blank');" class="btn btn-primary" type="button">
 								<i class="fas fa-external-link-alt"></i>
 								Live Website</button>
 						</div>
